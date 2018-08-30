@@ -1,15 +1,12 @@
 package cn.spring.mvn.socket;
 
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
-import java.io.DataOutputStream;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.Socket;
 
-//import cn.spring.mvc.base.tools.BaseTool;
-
-//@SuppressWarnings("unused")
 public class SocketHandler implements Runnable {
 	//Socket tools
 	private Socket socket;
@@ -22,10 +19,7 @@ public class SocketHandler implements Runnable {
 
 	@Override
 	public void run() {
-		InputStreamReader inputStreamReader = null;
-		BufferedReader bufferedReader = null;
-		DataOutputStream outputStream = null;
-		String string = "";
+		BufferedWriter bufferedWriter = null;
 		String requestStr = ""; 
 		String responseStr = "";
 		try {
@@ -36,48 +30,47 @@ public class SocketHandler implements Runnable {
 			 * 3.对请求报文进行解析处理后,将处理结果通过Socket创建输出流 
 			 * 4.回复客户端"OK"
 			 */
-			inputStreamReader = new InputStreamReader(socket.getInputStream(), charSetStr);//解决中文字符乱码问题
-			bufferedReader = new BufferedReader(inputStreamReader);
-			while((string = bufferedReader.readLine()) != null){
-				requestStr += string;
-			}
-			socket.shutdownInput();//socket数据传输完成后,关闭
-            System.out.println("========请求json报文========" + requestStr);
+			System.out.println("[INFO]========客户端地址: " + socket.getInetAddress().getHostAddress());
+			InputStreamReader inputStreamReader = new InputStreamReader(socket.getInputStream(), charSetStr);//解决中文字符乱码问题
+			BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+			requestStr = bufferedReader.readLine();
+            System.out.println("[INFO]========请求json报文: " + requestStr);
 //          responseStr = SocketHandlerImpl.callInterface(requestStr);//responseMap.toString();
             responseStr = requestStr;//测试直接将请求返回
-            System.out.println("========响应json报文========" + responseStr);
-            outputStream = new DataOutputStream(new BufferedOutputStream(socket.getOutputStream()));
-            outputStream.writeUTF(responseStr); 
-            inputStreamReader.close();
-            bufferedReader.close();
-            outputStream.flush();  
-            outputStream.close();  
+            System.out.println("[INFO]========响应json报文: " + responseStr);
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(socket.getOutputStream(), charSetStr);
+            bufferedWriter = new BufferedWriter(outputStreamWriter);
+            bufferedWriter.write(responseStr);
 		} catch (Exception e) {
-			e.printStackTrace();
 			try {//some Exception in try return some message 
 				responseStr =  "{" + 
 									"\"comm\":{\"corecd\":\"\",\"mesage\":\"" + e.getMessage() + "\",\"asktyp\":\"\",\"status\":\"ERROR\"}," + 
 									"\"sys\":{\"servtp\":\"\",\"servno\":\"\",\"serial\":\"" + "这儿需要一个序列号" + "\",\"corpno\":\"\"}" +
 							   "}";
-				outputStream.writeUTF(responseStr);
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-				System.out.println("服务器 run 异常--1: " + e.getMessage()); 
+				bufferedWriter.write(responseStr);
+			} catch (IOException IOe) {
+				System.out.println("[ERROR]========服务器 run()异常响应组装报文异常:" + IOe.getMessage()); 
+				return;
 			} 
-			System.out.println("服务器 run 异常--2: " + e.getMessage()); 
+			System.out.println("[ERROR]========服务器 run()异常响应:" + e.getMessage()); 
 		} finally {
-			if (socket != null) {
+			if (bufferedWriter != null) {
 				try {
-					inputStreamReader.close();
-		            bufferedReader.close();
-		            outputStream.flush();  
-		            outputStream.close(); 
-					socket.close();
+					bufferedWriter.flush();
 				} catch (IOException e) {
-					e.printStackTrace();
+					System.out.println("[ERROR]========服务器bufferedWriter.flush()异常:" + e.getMessage());
+					return;
 				}
 			}
+			if (socket != null) {
+				try {
+					socket.close();
+				} catch (IOException e) {
+					System.out.println("[ERROR]========服务器socket.close()异常:" + e.getMessage());
+					return;
+				}
+			}
+			System.out.println("[INFO]========Socket服务器响应结束!"); 
 		}
 	}
 
