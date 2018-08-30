@@ -1,81 +1,81 @@
 
 package cn.spring.mvc.admin.test;
 
-import java.io.File;
+//import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
+//import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.dom4j.Document;
-import org.dom4j.DocumentException;
-import org.dom4j.Element;
-import org.dom4j.Node;
-import org.dom4j.io.SAXReader;
+//import org.dom4j.Document;
+//import org.dom4j.DocumentException;
+//import org.dom4j.Element;
+//import org.dom4j.Node;
+//import org.dom4j.io.SAXReader;
 
 import cn.spring.mvc.server.tools.RequestMap;
-import cn.spring.mvc.base.util.BaseUtil;
-import cn.spring.mvc.core.entity.CustUser;
+//import cn.spring.mvc.base.util.BaseUtil;
+//import cn.spring.mvc.core.entity.CustUser;
 
 import com.alibaba.fastjson.JSONObject;
 
 public class Test {
 	
 	
-	@SuppressWarnings("unchecked")
+//	@SuppressWarnings("unchecked")
 	@org.junit.Test
 	public void TestXml() {
-		try {
-			SAXReader reader = new SAXReader();
-			Document document = reader.read(new File("./src/main/resources/interface/opcust.xml"));
-			/**
-			 * 节点对象的操作方法
-			 */
-			//获取文档根节点
-			Element root = document.getRootElement();
-			//输出根标签的名字
-			System.out.println(root.getName());
-			//获取根节点下面的所有子节点(不包过子节点的子节点)
-			List<Element> list = root.elements() ;
-			//遍历List的方法
-			for (Element e:list){
-				System.out.println(e.getName());
-			}
-			//获得指定节点下面的子节点
-			Element contactElem = root.element("contact");//首先要知道自己要操作的节点。 
-			List<Element> contactList = contactElem.elements();
-			for (Element e:contactList){
-				System.out.println(e.getName());
-			}  
-			
-			//调用下面获取子节点的递归函数。
-			getChildNodes(root);
-			//获得当前标签下指定名称的第一个子标签
-			Element conElem = root.element("contact");
-			System.out.println(conElem.getName());
-			//获得更深层次的标签（一层一层的获取）
-			Element nameElem = root.element("contact").element("name");
-			System.out.println(nameElem.getName());
-			
-		} catch (DocumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			SAXReader reader = new SAXReader();
+//			Document document = reader.read(new File("./src/main/resources/interface/opcust.xml"));
+//			/**
+//			 * 节点对象的操作方法
+//			 */
+//			//获取文档根节点
+//			Element root = document.getRootElement();
+//			//输出根标签的名字
+//			System.out.println(root.getName());
+//			//获取根节点下面的所有子节点(不包过子节点的子节点)
+//			List<Element> list = root.elements() ;
+//			//遍历List的方法
+//			for (Element e:list){
+//				System.out.println(e.getName());
+//			}
+//			//获得指定节点下面的子节点
+//			Element contactElem = root.element("contact");//首先要知道自己要操作的节点。 
+//			List<Element> contactList = contactElem.elements();
+//			for (Element e:contactList){
+//				System.out.println(e.getName());
+//			}  
+//			
+//			//调用下面获取子节点的递归函数。
+//			getChildNodes(root);
+//			//获得当前标签下指定名称的第一个子标签
+//			Element conElem = root.element("contact");
+//			System.out.println(conElem.getName());
+//			//获得更深层次的标签（一层一层的获取）
+//			Element nameElem = root.element("contact").element("name");
+//			System.out.println(nameElem.getName());
+//			
+//		} catch (DocumentException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 	//递归查询节点函数,输出节点名称
-	@SuppressWarnings("unchecked")
-	private static void  getChildNodes(Element elem){
-		System.out.println(elem.getName());
-		Iterator<Node> it=    elem.nodeIterator();
-		while (it.hasNext()){
-			Node node = it.next();
-			if (node instanceof Element){
-				Element e1 = (Element)node;
-				getChildNodes(e1);
-			}
-		}
-	}
+//	@SuppressWarnings("unchecked")
+//	private static void  getChildNodes(Element elem){
+//		System.out.println(elem.getName());
+//		Iterator<Node> it=    elem.nodeIterator();
+//		while (it.hasNext()){
+//			Node node = it.next();
+//			if (node instanceof Element){
+//				Element e1 = (Element)node;
+//				getChildNodes(e1);
+//			}
+//		}
+//	}
 	
 	
 	
@@ -152,38 +152,38 @@ public class Test {
 //		responseMap.put("opensq", "763728388979454954773272"); 
 		
 		/**--------------------------------查询类-----对应的request的报文中也应该要多点东西出来----------------------*/
-		List<CustUser> custUserList = new ArrayList<CustUser>();//通过heibrnt查询出来的结果
-		CustUser one = new CustUser();
-		CustUser two = new CustUser();
-		CustUser three = new CustUser();
-		one.setCustno("979494372");
-		one.setCustna("古天乐");
-		one.setIdtftp("01");
-		one.setIdtfno("511024199102933");
-		one.setTeleno("15928435557");
-		
-		two.setCustno("943497772");
-		two.setCustna("渣渣辉");
-		two.setIdtftp("01");
-		two.setIdtfno("51102419910245933");
-		two.setTeleno("15928455557");
-		
-		three.setCustno("979497652");
-		three.setCustna("周星驰");
-		three.setIdtftp("01");
-		three.setIdtfno("51102419910297633");
-		three.setTeleno("15928835557");
-		
-		custUserList.add(one);
-		custUserList.add(two);
-		custUserList.add(three);
-		for (CustUser custUser : custUserList) {
-			//将对象的custUser转化成属性为key,属性对应值为value的map,不管这个属性上是否有值均需要写在map中无值时,赋值为""
-			//commUtil中的那个方法不够用需要改造
-			Map<String, Object> map = BaseUtil.getObjectMapByReflectObject(custUser);
-			dataList.add(map);
-		}
-		responseMap.put("count", custUserList.size());
+//		List<CustUser> custUserList = new ArrayList<CustUser>();//通过heibrnt查询出来的结果
+//		CustUser one = new CustUser();
+//		CustUser two = new CustUser();
+//		CustUser three = new CustUser();
+//		one.setCustno("979494372");
+//		one.setCustna("古天乐");
+//		one.setIdtftp("01");
+//		one.setIdtfno("511024199102933");
+//		one.setTeleno("15928435557");
+//		
+//		two.setCustno("943497772");
+//		two.setCustna("渣渣辉");
+//		two.setIdtftp("01");
+//		two.setIdtfno("51102419910245933");
+//		two.setTeleno("15928455557");
+//		
+//		three.setCustno("979497652");
+//		three.setCustna("周星驰");
+//		three.setIdtftp("01");
+//		three.setIdtfno("51102419910297633");
+//		three.setTeleno("15928835557");
+//		
+//		custUserList.add(one);
+//		custUserList.add(two);
+//		custUserList.add(three);
+//		for (CustUser custUser : custUserList) {
+//			//将对象的custUser转化成属性为key,属性对应值为value的map,不管这个属性上是否有值均需要写在map中无值时,赋值为""
+//			//commUtil中的那个方法不够用需要改造
+//			Map<String, Object> map = BaseUtil.getObjectMapByReflectObject(custUser);
+//			dataList.add(map);
+//		}
+//		responseMap.put("count", custUserList.size());
 		responseMap.put("data", dataList);
 		
 		dstMap.put("sys", sysMap);

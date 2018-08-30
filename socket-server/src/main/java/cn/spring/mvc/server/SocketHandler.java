@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
 
-import cn.spring.mvc.base.tools.BaseTool;
+//import cn.spring.mvc.base.tools.BaseTool;
 
 //@SuppressWarnings("unused")
 public class SocketHandler implements Runnable {
@@ -56,7 +56,7 @@ public class SocketHandler implements Runnable {
 			try {//some Exception in try return some message 
 				responseStr =  "{" + 
 									"\"comm\":{\"corecd\":\"\",\"mesage\":\"" + e.getMessage() + "\",\"asktyp\":\"\",\"status\":\"ERROR\"}," + 
-									"\"sys\":{\"servtp\":\"\",\"servno\":\"\",\"serial\":\"" + BaseTool.getSerial() + "\",\"corpno\":\"\"}" +
+									"\"sys\":{\"servtp\":\"\",\"servno\":\"\",\"serial\":\"" + "这儿需要一个序列号" + "\",\"corpno\":\"\"}" +
 							   "}";
 				outputStream.writeUTF(responseStr);
 			} catch (IOException e1) {

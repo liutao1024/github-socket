@@ -4,10 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import cn.spring.mvc.base.tools.BaseTool;
-import cn.spring.mvc.comm.tools.SequenceTool;
-import cn.spring.mvc.comm.util.CommUtil;
+
+//import cn.spring.mvc.base.tools.BaseTool;
+//import cn.spring.mvc.comm.tools.SequenceTool;
+//import cn.spring.mvc.comm.util.CommUtil;
 import cn.spring.mvc.server.service.CoreServerImpl;
+import cn.spring.mvc.server.tools.CommUtil;
 import cn.spring.mvc.server.tools.ServerTool;
 
 /**
@@ -27,7 +29,7 @@ public class SocketHandlerImpl {
 		String returnString = "";
 		String responseStatus = "";
 		String responseMesage = "";
-		String responseSerial = BaseTool.getSerial();
+		String responseSerial = "";//BaseTool.getSerial();
 		
 		Map<String, Object> requestMap = new HashMap<String, Object>();
 		Map<String, Object> requestSysMap = new HashMap<String, Object>();

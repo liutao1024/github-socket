@@ -1,15 +1,15 @@
 package cn.spring.mvc.server.tools;
 
-import java.io.File;
-import java.util.ArrayList;
+//import java.io.File;
+//import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+//import java.util.List;
 import java.util.Map;
 
-import org.dom4j.Document;
-import org.dom4j.DocumentException;
-import org.dom4j.Element;
-import org.dom4j.io.SAXReader;
+//import org.dom4j.Document;
+//import org.dom4j.DocumentException;
+//import org.dom4j.Element;
+//import org.dom4j.io.SAXReader;
 
 import com.alibaba.fastjson.JSONObject;
 /**
@@ -96,17 +96,17 @@ public class ServerTool {
 	 * @return
 	 * @throws DocumentException
 	 */
-	public static Element getRootElement(String fileName) throws DocumentException{
-		try {
-			File file = new File("./src/main/resources/interface/"+ fileName +".xml");
-			SAXReader saxReader = new SAXReader();
-			Document document = saxReader.read(file);
-			Element root = document.getRootElement();
-			return root;
-		} catch (DocumentException e) {
-			throw e;
-		}
-	}
+//	public static Element getRootElement(String fileName) throws DocumentException{
+//		try {
+//			File file = new File("./src/main/resources/interface/"+ fileName +".xml");
+//			SAXReader saxReader = new SAXReader();
+//			Document document = saxReader.read(file);
+//			Element root = document.getRootElement();
+//			return root;
+//		} catch (DocumentException e) {
+//			throw e;
+//		}
+//	}
 	
 	/**
 	 * @author LiuTao @date 2018年6月14日 下午10:15:56 
@@ -116,10 +116,10 @@ public class ServerTool {
 	 * @param elementStr
 	 * @return
 	 */
-	public static Element getElementByElement(Element rootElement, String elementStr){
-		Element element = rootElement.element(elementStr);
-		return element;
-	}
+//	public static Element getElementByElement(Element rootElement, String elementStr){
+//		Element element = rootElement.element(elementStr);
+//		return element;
+//	}
 	/**
 	 * @author LiuTao @date 2018年6月14日 下午10:18:57 
 	 * @Title: getElemenNameByElement 
@@ -127,45 +127,44 @@ public class ServerTool {
 	 * @param element
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
-	public static List<String> getElemenNameByElement(Element element){
-		List<String> rstStrList = new ArrayList<String>();
-		List<Element> elementList = element.elements();
-		for (Element e : elementList) {
-			rstStrList.add(e.getName());
-		}
-		return rstStrList;
-	}
-	
-	public static List<String> getRequestElementNameStrLits(String fileName) throws DocumentException{
-		List<String> requestStrList = new ArrayList<String>();
-		Element rootElement = getRootElement(fileName);
-		Element requestElement = getElementByElement(rootElement, "request");
-		requestStrList = getElemenNameByElement(requestElement); 
-		return requestStrList;
-	}
-	
-	public static List<String> getResponseElementNameStrLits(String fileName) throws DocumentException{
-		List<String> responseStrList = new ArrayList<String>();
-		Element rootElement = getRootElement(fileName);
-		Element responseElement = getElementByElement(rootElement, "response");
-		responseStrList = getElemenNameByElement(responseElement); 
-		return responseStrList;
-	}
-	public static List<String> getResponseCountElementNameStrLits(String fileName) throws DocumentException{
-		List<String> responseCountStrList = new ArrayList<String>();
-		Element rootElement = getRootElement(fileName);
-		Element responseElement = getElementByElement(rootElement, "response");
-		Element responseCountElement = getElementByElement(responseElement, "count");
-		responseCountStrList = getElemenNameByElement(responseCountElement); 
-		return responseCountStrList;
-	}
-	public static List<String> getResponseDataElementNameStrLits(String fileName) throws DocumentException{
-		List<String> responseDataStrList = new ArrayList<String>();
-		Element rootElement = getRootElement(fileName);
-		Element responseElement = getElementByElement(rootElement, "response");
-		Element responseDataElement = getElementByElement(responseElement, "data");
-		responseDataStrList = getElemenNameByElement(responseDataElement); 
-		return responseDataStrList;
-	}
+//	@SuppressWarnings("unchecked")
+//	public static List<String> getElemenNameByElement(Element element){
+//		List<String> rstStrList = new ArrayList<String>();
+//		List<Element> elementList = element.elements();
+//		for (Element e : elementList) {
+//			rstStrList.add(e.getName());
+//		}
+//		return rstStrList;
+//	}
+//	public static List<String> getRequestElementNameStrLits(String fileName) throws DocumentException{
+//		List<String> requestStrList = new ArrayList<String>();
+//		Element rootElement = getRootElement(fileName);
+//		Element requestElement = getElementByElement(rootElement, "request");
+//		requestStrList = getElemenNameByElement(requestElement); 
+//		return requestStrList;
+//	}
+//	
+//	public static List<String> getResponseElementNameStrLits(String fileName) throws DocumentException{
+//		List<String> responseStrList = new ArrayList<String>();
+//		Element rootElement = getRootElement(fileName);
+//		Element responseElement = getElementByElement(rootElement, "response");
+//		responseStrList = getElemenNameByElement(responseElement); 
+//		return responseStrList;
+//	}
+//	public static List<String> getResponseCountElementNameStrLits(String fileName) throws DocumentException{
+//		List<String> responseCountStrList = new ArrayList<String>();
+//		Element rootElement = getRootElement(fileName);
+//		Element responseElement = getElementByElement(rootElement, "response");
+//		Element responseCountElement = getElementByElement(responseElement, "count");
+//		responseCountStrList = getElemenNameByElement(responseCountElement); 
+//		return responseCountStrList;
+//	}
+//	public static List<String> getResponseDataElementNameStrLits(String fileName) throws DocumentException{
+//		List<String> responseDataStrList = new ArrayList<String>();
+//		Element rootElement = getRootElement(fileName);
+//		Element responseElement = getElementByElement(rootElement, "response");
+//		Element responseDataElement = getElementByElement(responseElement, "data");
+//		responseDataStrList = getElemenNameByElement(responseDataElement); 
+//		return responseDataStrList;
+//	}
 }
