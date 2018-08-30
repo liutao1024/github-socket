@@ -1,4 +1,6 @@
-package cn.spring.mvc.server;
+package cn.spring.mvn.socket;
+
+import cn.spring.mvn.socket.server.SocketServer;
 
 public class SocketManager {
 	/**

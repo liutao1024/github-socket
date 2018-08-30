@@ -7,9 +7,9 @@ import org.junit.Test;
 
 import com.alibaba.fastjson.JSONObject;
 
-import cn.spring.mvc.server.SocketHandlerImpl;
-import cn.spring.mvc.server.tools.ServerTool;
-import cn.spring.mvc.server.client.SocketClient;
+import cn.spring.mvn.socket.SocketHandlerImpl;
+import cn.spring.mvn.socket.client.SocketClient;
+import cn.spring.mvn.socket.tools.ServerTool;
 
 public class ServerToolTest {
 	

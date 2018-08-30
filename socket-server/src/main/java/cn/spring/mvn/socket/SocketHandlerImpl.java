@@ -1,16 +1,19 @@
-package cn.spring.mvc.server;
+package cn.spring.mvn.socket;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
 
+
 //import cn.spring.mvc.base.tools.BaseTool;
 //import cn.spring.mvc.comm.tools.SequenceTool;
 //import cn.spring.mvc.comm.util.CommUtil;
-import cn.spring.mvc.server.service.CoreServerImpl;
-import cn.spring.mvc.server.tools.CommUtil;
-import cn.spring.mvc.server.tools.ServerTool;
+
+
+import cn.spring.mvn.socket.service.CoreServerImpl;
+import cn.spring.mvn.socket.tools.CommUtil;
+import cn.spring.mvn.socket.tools.ServerTool;
 
 /**
  * @author LiuTao @date 2018年6月13日 下午10:32:13

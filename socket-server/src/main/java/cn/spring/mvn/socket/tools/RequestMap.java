@@ -1,45 +1,66 @@
-package cn.spring.mvc.server.tools;
+package cn.spring.mvn.socket.tools;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
 
-public class ResponseMap implements Map<String, Object>{
-	private Map<String, Object> sysMap;
-	private Map<String, Object> commMap;
-	private Map<String, Object> srcMap;
+public class RequestMap implements Map<String, Object>, Serializable{
+	/**@Fields serialVersionUID : TODO(Describe) 
+	 */
+	private static final long serialVersionUID = -5291175845786955585L;
 	
-	public ResponseMap(){
+	private Map<String, Object> sys;
+	private Map<String, Object> comm;
+	private Map<String, Object> request;
+	
+	public RequestMap(){
 		
 	}
-	public ResponseMap(Map<String, Object> sysMap, Map<String, Object> commMap, Map<String, Object> srcMap){
-		this.sysMap = sysMap;
-		this.commMap = commMap;
-		this.srcMap = srcMap;
-		
-	}
-	
-	public Map<String, Object> getSysMap() {
-		return sysMap;
-	}
-	public void setSysMap(Map<String, Object> sysMap) {
-		this.sysMap = sysMap;
-	}
-	public Map<String, Object> getCommMap() {
-		return commMap;
-	}
-	public void setCommMap(Map<String, Object> commMap) {
-		this.commMap = commMap;
-	}
-	public Map<String, Object> getSrcMap() {
-		return srcMap;
-	}
-	public void setSrcMap(Map<String, Object> srcMap) {
-		this.srcMap = srcMap;
+	public RequestMap(Map<String, Object> sys, Map<String, Object> comm, Map<String, Object> request){
+		this.sys = sys;
+		this.comm = comm;
+		this.request = request;
 	}
 	
 	
 	
+	public Map<String, Object> getSys() {
+		return sys;
+	}
+
+
+
+	public void setSys(Map<String, Object> sys) {
+		this.sys = sys;
+	}
+
+
+
+	public Map<String, Object> getComm() {
+		return comm;
+	}
+
+
+
+	public void setComm(Map<String, Object> comm) {
+		this.comm = comm;
+	}
+
+
+
+	public Map<String, Object> getRequest() {
+		return request;
+	}
+
+
+
+	public void setRequest(Map<String, Object> request) {
+		this.request = request;
+	}
+
+
+
 	@Override
 	public int size() {
 		return this.size();
@@ -86,7 +107,7 @@ public class ResponseMap implements Map<String, Object>{
 	}
 	@Override
 	public Set<java.util.Map.Entry<String, Object>> entrySet() {
-		return this.entrySet();
+		return null;
 	}
 	
 	

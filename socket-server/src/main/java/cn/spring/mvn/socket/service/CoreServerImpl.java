@@ -1,10 +1,10 @@
-package cn.spring.mvc.server.service;
+package cn.spring.mvn.socket.service;
 
 import java.util.HashMap;
 //import java.util.List;
 import java.util.Map;
 
-import cn.spring.mvc.server.tools.CommUtil;
+import cn.spring.mvn.socket.tools.CommUtil;
 
 //import org.springframework.context.ApplicationContext;
 //

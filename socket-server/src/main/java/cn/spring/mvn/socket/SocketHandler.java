@@ -1,4 +1,4 @@
-package cn.spring.mvc.server;
+package cn.spring.mvn.socket;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -43,7 +43,8 @@ public class SocketHandler implements Runnable {
 			}
 			socket.shutdownInput();//socket数据传输完成后,关闭
             System.out.println("========请求json报文========" + requestStr);
-            responseStr = SocketHandlerImpl.callInterface(requestStr);//responseMap.toString();
+//          responseStr = SocketHandlerImpl.callInterface(requestStr);//responseMap.toString();
+            responseStr = requestStr;//测试直接将请求返回
             System.out.println("========响应json报文========" + responseStr);
             outputStream = new DataOutputStream(new BufferedOutputStream(socket.getOutputStream()));
             outputStream.writeUTF(responseStr); 

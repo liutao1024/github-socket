@@ -1,4 +1,4 @@
-package cn.spring.mvc.server.tools;
+package cn.spring.mvn.socket.tools;
 
 import java.beans.BeanInfo;
 import java.beans.Introspector;

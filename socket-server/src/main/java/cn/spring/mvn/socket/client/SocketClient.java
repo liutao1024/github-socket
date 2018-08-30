@@ -1,4 +1,4 @@
-package cn.spring.mvc.server.client;
+package cn.spring.mvn.socket.client;
 
 import java.io.BufferedInputStream;
 import java.io.DataInputStream;
