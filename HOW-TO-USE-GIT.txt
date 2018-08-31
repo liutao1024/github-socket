@@ -5,9 +5,14 @@ Git是目前世界上最先进的分布式版本控制系统,很方便公司同�
 git clone url (url = http://www.github.com/liutao1024/github-socket.git)
 do some change 
 git pull 
-git add ()
+git add [file-name/.] (新增或者修改文件时使用)
 git commit -m [describe] (将修改的文件提交到本地仓库)
-git push 
+git push (提交至github远程仓库)
+git rm -r [file-name] (删除文件)
+git commit -m [describe] 
+git push (提交至github远程仓库)  后会弹出用户密码输入狂
+
+
 
 创建本地仓库
 1.创建一个空目录
