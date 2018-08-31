@@ -1,4 +1,4 @@
-package cn.spring.mvc.admin.test;
+package cn.spring.mvn.socket.server;
 
 import java.util.HashMap;
 import java.util.Map;

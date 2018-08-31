@@ -104,13 +104,13 @@ public class SocketClient {
 		
 		srcMap.put("idtftp", "01");
 		srcMap.put("idtfno", "501024199112030398");
-		srcMap.put("custna", "张家辉");
+		srcMap.put("custna", "古天乐");
 		requestMap.put("sys", sysMap);
 		requestMap.put("comm", commMap);
 		requestMap.put("request", srcMap);
 		
 		try {
-			callClientReturnString("localhost", 8088, requestMap);
+			callClientReturnString("192.168.1.126", 8088, requestMap);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
