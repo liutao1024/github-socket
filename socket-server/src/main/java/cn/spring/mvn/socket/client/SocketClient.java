@@ -110,7 +110,7 @@ public class SocketClient {
 		requestMap.put("request", srcMap);
 		
 		try {
-			callClientReturnString("192.168.1.126", 8088, requestMap);
+			callClientReturnString("127.0.0.1", 8088, requestMap);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

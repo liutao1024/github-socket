@@ -49,5 +49,8 @@ public class User {
        this.phone = phone;
    } 
 
+   public String toString(){
+	   return "[userid = " + userid +", username = " + username + ", password = " + password + ", email = " + email + ", phone = " + phone + "]";
+   }
 
 }
