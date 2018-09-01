@@ -36,6 +36,7 @@ public class SocketHandler implements Runnable {
 			requestStr = bufferedReader.readLine();
             System.out.println("[INFO]========请求json报文: " + requestStr);
 //          responseStr = SocketHandlerImpl.callInterface(requestStr);//responseMap.toString();
+            
             responseStr = requestStr;//测试直接将请求返回
             System.out.println("[INFO]========响应json报文: " + responseStr);
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(socket.getOutputStream(), charSetStr);
