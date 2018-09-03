@@ -9,4 +9,7 @@
 	<!-- 扫描service自动注入为bean -->
 	<context:component-scan base-package="cn.spring.mvn.socket.entity.service.impl" />
 	
+	
+	<bean class="cn.spring.mvn.socket.base.SpringTool"></bean>
+	<bean class="cn.spring.mvn.socket.server.SocketManager" init-method="initializeServer"></bean>
 </beans> 

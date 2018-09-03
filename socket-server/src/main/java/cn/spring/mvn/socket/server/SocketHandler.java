@@ -1,4 +1,4 @@
-package cn.spring.mvn.socket;
+package cn.spring.mvn.socket.server;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -7,6 +7,11 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import cn.spring.mvn.socket.base.SpringTool;
+import cn.spring.mvn.socket.entity.service.UserService;
+import cn.spring.mvn.socket.entity.service.impl.UserServiceImpl;
 import cn.spring.mvn.socket.test.UserServiceImplTest;
 
 public class SocketHandler implements Runnable {
@@ -19,6 +24,9 @@ public class SocketHandler implements Runnable {
 		this.socket = socket;
 	}
 
+	@Autowired
+	private UserService userServiceImpl = (UserService) SpringTool.getBean("UserService");
+	
 	@Override
 	public void run() {
 		BufferedWriter bufferedWriter = null;
@@ -39,7 +47,8 @@ public class SocketHandler implements Runnable {
             System.out.println("[INFO]========请求json报文: " + requestStr);
 //          responseStr = SocketHandlerImpl.callInterface(requestStr);//responseMap.toString();
 //            responseStr = requestStr;//测试直接将请求返回
-            responseStr = UserServiceImplTest.getString("1001");
+//            responseStr = UserServiceImplTest.getString("1001");
+            responseStr = userServiceImpl.getUser("1001").toString();
             System.out.println("[INFO]========响应json报文: " + responseStr);
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(socket.getOutputStream(), charSetStr);
             bufferedWriter = new BufferedWriter(outputStreamWriter);
