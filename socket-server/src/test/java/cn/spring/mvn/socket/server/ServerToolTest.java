@@ -3,7 +3,7 @@ package cn.spring.mvn.socket.server;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.junit.Test;
+//import org.junit.Test;
 
 import com.alibaba.fastjson.JSONObject;
 
@@ -14,7 +14,7 @@ public class ServerToolTest {
 	
 	
 	
-	@Test
+//	@Test
 	public void TestImpl(){
 		Map<String, Object> requestMap = new HashMap<String, Object>();
 		
@@ -40,7 +40,7 @@ public class ServerToolTest {
 		System.out.println(str);
 	}
 	
-	@Test
+//	@Test
 	public void TestServer() throws Exception{
 		Map<String, Object> sysMap = new HashMap<String, Object>();
 		Map<String, Object> commMap = new HashMap<String, Object>();
@@ -71,7 +71,7 @@ public class ServerToolTest {
 	
 	
 	@SuppressWarnings("unchecked")
-	@Test
+//	@Test
 	public void Test0001(){
 		Map<String, Object> sysMap = new HashMap<String, Object>();
 		Map<String, Object> commMap = new HashMap<String, Object>();

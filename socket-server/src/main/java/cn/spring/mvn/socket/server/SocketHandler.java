@@ -11,8 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import cn.spring.mvn.socket.base.SpringTool;
 import cn.spring.mvn.socket.entity.service.UserService;
-import cn.spring.mvn.socket.entity.service.impl.UserServiceImpl;
-import cn.spring.mvn.socket.test.UserServiceImplTest;
+//import cn.spring.mvn.socket.entity.service.impl.UserServiceImpl;
+//import cn.spring.mvn.socket.test.UserServiceImplTest;
 
 public class SocketHandler implements Runnable {
 	//Socket tools

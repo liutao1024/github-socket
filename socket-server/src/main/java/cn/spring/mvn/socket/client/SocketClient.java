@@ -99,8 +99,8 @@ public class SocketClient {
 		sysMap.put("servtp", "01");
 		sysMap.put("servno", "02");
 		
-		commMap.put("corecd", "opcust");
-		commMap.put("asktyp", "D");//请求类型:Q--查询(返回的是一个list),D--执行(返回的是一个结果)
+		commMap.put("corecd", "qrcust");
+		commMap.put("asktyp", "Q");//请求类型:Q--查询(返回的是一个list),D--执行(返回的是一个结果)
 		
 		srcMap.put("idtftp", "01");
 		srcMap.put("idtfno", "501024199109054398");
