@@ -11,5 +11,5 @@
 	
 	
 	<bean class="cn.spring.mvn.socket.base.SpringTool"></bean>
-	<bean class="cn.spring.mvn.socket.server.SocketManager" init-method="initializeServer"></bean>
+	<!-- <bean class="cn.spring.mvn.socket.server.SocketManager" init-method="initializeServer"></bean> -->
 </beans> 

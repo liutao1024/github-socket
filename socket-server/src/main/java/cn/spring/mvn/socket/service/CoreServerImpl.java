@@ -4,7 +4,7 @@ import java.util.HashMap;
 //import java.util.List;
 import java.util.Map;
 
-import cn.spring.mvn.socket.tools.CommUtil;
+import cn.spring.mvn.socket.utils.CommUtil;
 
 //import org.springframework.context.ApplicationContext;
 //

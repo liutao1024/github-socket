@@ -13,7 +13,7 @@ public class UserServiceImplTest extends SocketBase{
 //		UserService userServiceImpl = getApplicationContext().getBean("UserService",UserService.class);
 //		User user = userServiceImpl.getUser("1001");
 //		System.out.println(user.getUsername());
-		//System.out.println(getString("1001"));
+		System.out.println(getString("1001"));
 	}
 	
 	public static String getString(String userid){
