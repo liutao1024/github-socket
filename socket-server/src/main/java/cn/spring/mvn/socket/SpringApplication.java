@@ -5,12 +5,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import cn.spring.mvn.socket.entity.User;
 import cn.spring.mvn.socket.entity.service.UserService;
-//import cn.spring.mvn.socket.server.SocketManager;
+import cn.spring.mvn.socket.server.SocketManager;
 
 /**
  * @author LiuTao @date 2018年9月3日 下午1:52:50
  * @ClassName: SpringApplication 
- * @Description: TODO(非web项目spring的启动类)
+ * @Description: TODO(非web项目spring的启动类,加载spring和mybatis的配置文件是不是还可以加载log的配置文件)
  */
 public class SpringApplication {
 	private static String config_1 = "spring.xml";
@@ -39,7 +39,7 @@ public class SpringApplication {
 		UserService userServiceImpl = applicationContext.getBean("UserService",UserService.class);
 		User user = userServiceImpl.getUser("1001");
 		System.out.println(user);
-//		SocketManager.initializeServer();
-		System.out.println("12132131231231");
+		SocketManager.initializeServer();
+//		System.out.println("12132131231231");
 	}
 }

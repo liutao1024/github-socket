@@ -48,7 +48,7 @@ public class SocketHandler implements Runnable {
 //          responseStr = SocketHandlerImpl.callInterface(requestStr);//responseMap.toString();
 //            responseStr = requestStr;//测试直接将请求返回
 //            responseStr = UserServiceImplTest.getString("1001");
-            responseStr = userServiceImpl.getUser("1001").toString();
+            responseStr = userServiceImpl.getUserList().toString();
             System.out.println("[INFO]========响应json报文: " + responseStr);
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(socket.getOutputStream(), charSetStr);
             bufferedWriter = new BufferedWriter(outputStreamWriter);
